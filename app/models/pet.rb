@@ -13,6 +13,7 @@ has_many :visits
 # order pets by their dob
 
 # get all the pets we treat (not moved away or dead)
+# scope :active, lambda 
 
 # get all the pets we heave treated that moved away or died
 
@@ -20,11 +21,21 @@ has_many :visits
 
 # get all the male pets
 
+# get all the female pets that are still getting treated
+
 # get all the pets for a particular owner
 
 # get all the pets who are a particular animal type
 
+
 # get all the pets born before a certain date
+
+
+
+
+
+
+
 
 
 # Validations
