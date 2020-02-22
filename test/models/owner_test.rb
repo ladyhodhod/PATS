@@ -72,9 +72,41 @@ class OwnerTest < ActiveSupport::TestCase
       assert_equal "Alex", @alex.first_name
       assert_equal "Mark", @mark.first_name
       assert_equal "Rachel", @rachel.first_name
-    #   assert @alex.active
-    #   assert @mark.active
-    #   deny @rachel.active
+      assert @alex.active
+      assert @mark.active
+      assert_not @rachel.active
     end
+
+    # test the scope 'alphabetical'
+    should "shows that there are three owners in in alphabetical order" do
+      assert_equal ["Alex", "Mark", "Rachel"], Owner.alphabetical.map{|o| o.first_name}
+    end
+
+   # test the scope 'active'
+   should "shows that there are two active owners" do
+    assert_equal 2, Owner.active.size
+    # assert_equal ["Alex", "Mark"], Owner.active.alphabetical. map{|o| o.first_name}
+    assert_equal ["Alex", "Mark"], Owner.active.map{|o| o.first_name}.sort
   end
+
+ # test the scope 'inactive'
+ should "shows that there is one inactive owners" do
+  assert_equal 1, Owner.inactive.size
+  assert_equal ["Rachel"], Owner.inactive.map{|o| o.first_name}.sort
+end
+
+ # test the method 'name' works
+ should "shows that name method works" do
+  assert_equal "Heimann, Alex", @alex.name
+end
+
+# test the method 'proper name' works
+should "shows that proper name method works" do
+  assert_equal "Alex Heimann", @alex.proper_name
+end
+
+
+  
+end
+
 end

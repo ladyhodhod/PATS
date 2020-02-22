@@ -9,7 +9,7 @@ class Owner < ApplicationRecord
     # -----------------------------
     scope :doha_only, ->{where(city: 'Doha')}
     # list owners in alphabetical order
-    scope :alphabetical, ->{order('last_name')}
+    scope :alphabetical, ->{order('first_name')}
     # get all the owners who are active (not moved out and pet is alive)
     scope :active, ->{where(active:true)}
     # get all the owners who are inactive (have moved out or pet is dead)
@@ -29,5 +29,13 @@ class Owner < ApplicationRecord
   # Not allowing for .uk, .ca, etc. because this is a Pittsburgh business and customers not likely to be out-of-country
   validates_format_of :email, with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format"
   
+  def name
+    "#{last_name}, #{first_name}"
+  end
+
+   # a method to get owner name in last, first format
+   def proper_name
+    first_name + " " + last_name
+  end
     
 end
