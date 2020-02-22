@@ -41,6 +41,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'hirb', '0.7.3'
+  # GEMS ADDED FOR TESTING  
+  gem 'faker', '1.8.7'
+  gem 'factory_bot_rails', '4.8.2'
+  gem 'shoulda', '3.5.0'
+  gem 'shoulda-matchers', '2.8.0'
+
 end
 
 group :development do
