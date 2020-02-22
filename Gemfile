@@ -42,10 +42,12 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'hirb', '0.7.3'
   # GEMS ADDED FOR TESTING  
-  gem 'faker', '1.8.7'
-  gem 'factory_bot_rails', '4.8.2'
+  gem 'rspec-rails', '~> 3.4'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master' #  - Generates realistic fake data
+  gem 'factory_bot_rails', '4.8.2' # - factories over fixtures
   gem 'shoulda', '3.5.0'
   gem 'shoulda-matchers', '2.8.0'
+  gem 'simplecov' # examine code coverage
 
 end
 
