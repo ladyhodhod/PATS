@@ -13,47 +13,30 @@
           null
         ]
       },
-      "/Users/hbouamor/Desktop/rails/PATS/app/models/owner.rb": {
+      "/Users/hbouamor/Desktop/rails/PATS/app/models/animal.rb": {
         "lines": [
           1,
           null,
           null,
           null,
           1,
-          1,
           null,
           null,
-          null,
-          1,
           null,
           2,
-          null,
+          3,
           3,
           null,
-          3,
-          null,
-          1,
           null,
           null,
           null,
           null,
-          1,
-          null,
-          1,
-          null,
-          1,
           null,
           null,
-          1,
-          null,
-          1,
-          1,
           null,
           null,
           null,
           1,
-          1,
-          null,
           null,
           null
         ]
@@ -140,38 +123,6 @@
           null
         ]
       },
-      "/Users/hbouamor/Desktop/rails/PATS/app/models/visit.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
       "/Users/hbouamor/Desktop/rails/PATS/app/mailers/application_mailer.rb": {
         "lines": [
           0,
@@ -182,13 +133,56 @@
         "branches": {
         }
       },
-      "/Users/hbouamor/Desktop/rails/PATS/app/models/animal.rb": {
+      "/Users/hbouamor/Desktop/rails/PATS/app/models/owner.rb": {
         "lines": [
           0,
           null,
           null,
           null,
           0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/hbouamor/Desktop/rails/PATS/app/models/visit.rb": {
+        "lines": [
+          0,
           null,
           null,
           null,
@@ -200,10 +194,18 @@
           null,
           null,
           null,
+          0,
+          null,
+          0,
+          null,
+          0,
           null,
           null,
           null,
           null,
+          0,
+          null,
+          0,
           null,
           0,
           null,
@@ -329,6 +331,6 @@
         }
       }
     },
-    "timestamp": 1582405177
+    "timestamp": 1582405674
   }
 }

@@ -11,7 +11,6 @@ module Contexts
   include Contexts::Owners
   include Contexts::Pets
   include Contexts::Visits
-
   
   def create_all
     create_animals
