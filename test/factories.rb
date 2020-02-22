@@ -1,8 +1,8 @@
 # Faker: creates a fake names, adresses
 FactoryBot.define do
     factory :owner do
-        first_name {"Mohammad"}
-        last_name {"Salah"}
+        first_name {"Alex"}
+        last_name {"Heimann"}
         street {"10152 Sudberry Drive"}
         city {"Wexford"}
         state {"PA"}
@@ -12,16 +12,16 @@ FactoryBot.define do
         email {|a| "#{a.first_name}.#{a.last_name}@example.com".downcase }
     end
 
-    # factory :animal do
-    #   name "Cat"
-    #   active true
-    # end
-
     factory :animal do
-        # https://github.com/faker-ruby/faker
-        name Faker::Creature::Animal.name
-        active true
+      name "Cat"
+      active true
     end
+
+    # factory :animal do
+    #     # https://github.com/faker-ruby/faker
+    #     name Faker::Creature::Animal.name
+    #     active true
+    # end
 
     factory :pet do
       name "Dusty"

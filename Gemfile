@@ -48,6 +48,9 @@ group :development, :test do
   gem 'shoulda', '3.5.0'
   gem 'shoulda-matchers', '2.8.0'
   gem 'simplecov' # examine code coverage
+  gem 'minitest', '5.14.0'
+  gem 'minitest-rails', '3.0.0'
+  gem 'minitest-reporters', '1.1.19'
 
 end
 
