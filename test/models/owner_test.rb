@@ -1,9 +1,15 @@
 require 'test_helper'
 
 class OwnerTest < ActiveSupport::TestCase
+
+  # We use a library called shoulda-matchers to test validations and associations. 
+  # shoulda-matchers provides matchers for writing single line tests for common Rails functionality. Testing
+
   # Test Relationships
   should have_many(:pets)
   should have_many(:visits).through(:pets)
+
+
 
   # Validation macros...
   should validate_presence_of(:first_name)
@@ -37,7 +43,7 @@ class OwnerTest < ActiveSupport::TestCase
    should_not allow_value("412-2683-259").for(:phone)
 
    # Validating zip...
-  should allow_value("13431").for(:zip)
+  should allow_value("33431").for(:zip)
   should allow_value("15217").for(:zip)
   should allow_value("15090").for(:zip)
   

@@ -6,7 +6,7 @@ require "rails/test_help"
 require "minitest"
 require 'minitest/rails'
 require 'minitest/reporters'
-# require 'minitest_extensions'
+require 'minitest_extensions'
 require 'contexts'
 
 class ActiveSupport::TestCase
@@ -15,6 +15,8 @@ class ActiveSupport::TestCase
   include Contexts
 
   # Add more helper methods to be used by all tests here...
-  # Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
+    # Spruce up minitest results...
+
+  Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
 
 end
