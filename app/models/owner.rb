@@ -1,8 +1,6 @@
 class Owner < ApplicationRecord
 
-  # Callbacks
-
-    before_save :reformat_phone
+    # Callbacks
 
     # Relationships
     # -----------------------------
@@ -34,20 +32,6 @@ class Owner < ApplicationRecord
   validates_format_of :email, with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format"
   
 
-  def name
-    "#{last_name}, #{first_name}"
-  end
-
-  def proper_name
-    "#{first_name} #{last_name}"
-  end
-
-  private 
-  def reformat_phone
-    p= self.phone.to_s
-    p.gsub(/[^0-9]/, "")
-    self.phone=p #reset self.phone to new string
-  end
 
     
 end
