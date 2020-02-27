@@ -1,7 +1,6 @@
 # Mock object testing involves the use of fake objects as stand - ins for your real objects to support automated
 # testing
 FactoryBot.define do
-
   #factory blueprint for owner
   factory :owner do
     first_name {"Alex"}

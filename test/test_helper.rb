@@ -16,7 +16,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
     # Spruce up minitest results...
-
   Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
 
 end

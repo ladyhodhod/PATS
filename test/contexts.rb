@@ -1,26 +1,7 @@
-# require needed files
-# require './test/sets/animals'
-# require './test/sets/owners'
-# require './test/sets/pets'
-# require './test/sets/visits'
-
-
 module Contexts
-  # explicitly include all sets of contexts used for testing 
-  # include Contexts::Animals
-  # include Contexts::Owners
-  # include Contexts::Pets
-  # include Contexts::Visits
 
-  
-  # def create_all
-    # create_animals
-    # create_owners
-    # create_pets
-    # create_visits
-  # end
-   # FactoryBot uses the factory design pattern
-   def create_owners #here is the method
+  # FactoryBot uses the factory design pattern
+  def create_owners #here is the method
     @alex = FactoryBot.create(:owner) # this creates the default owner Alex.
     @rachel = FactoryBot.create(:owner, first_name: "Rachel", active: false)
     @mark = FactoryBot.create(:owner, first_name: "Mark", phone: "412-268-8211")
@@ -35,16 +16,22 @@ module Contexts
     @alex.destroy
   end
 
-  def create_pets
-    @dusty = FactoryBot.create(:pet, animal: @cat, owner: @alex, female: false)
-    @polo = FactoryBot.create(:pet, animal: @cat, owner: @alex, name: "Polo", active: false)
-    @pork_chop = FactoryBot.create(:pet, animal: @dog, owner: @mark, name: "Pork Chop")
+  def create_animals
+    @cat    = FactoryBot.create(:animal)
+    @dog    = FactoryBot.create(:animal, name: 'Dog')
+    @bird   = FactoryBot.create(:animal, name: 'Bird')
+    @ferret = FactoryBot.create(:animal, name: 'Ferret')
+    @rabbit = FactoryBot.create(:animal, name: 'Rabbit')
+    @turtle = FactoryBot.create(:animal, name: 'Turtle', active: false)
   end
   
-  def destroy_pets
-    @dusty.destroy
-    @polo.destroy
-    @pork_chop.destroy
+  def destroy_animals
+    @cat.delete  
+    @dog.delete
+    @bird.delete
+    @ferret.delete
+    @rabbit.delete
+    @turtle.delete
   end
 
 
