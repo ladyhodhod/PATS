@@ -22,13 +22,13 @@ class PetTest < ActiveSupport::TestCase
   
 # ---------------------------------
   # Testing other methods with a context
-  # context "Given context" do
-  #   # create the objects I want with factories
-  #   setup do 
-  #     create_animals
-  #     create_owners
-  #     create_pets
-  #   end
-  
+  context "Given context" do
+    # create the objects I want with factories
+    setup do 
+      create_animals
+      create_owners
+      create_pets
+    end
+  end
   
 end

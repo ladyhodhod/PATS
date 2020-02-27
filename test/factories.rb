@@ -1,5 +1,8 @@
-# Faker: creates a fake names, adresses
+# Mock object testing involves the use of fake objects as stand - ins for your real objects to support automated
+# testing
 FactoryBot.define do
+
+  #factory blueprint for owner
   factory :owner do
     first_name {"Alex"}
     last_name {"Heimann"}
@@ -12,17 +15,14 @@ FactoryBot.define do
     email {|a| "#{a.first_name}.#{a.last_name}@example.com".downcase }
   end
 
+   #factory blueprint for animal
     factory :animal do
       name "Cat"
       active true
     end
 
-    # factory :animal do
-    #     # https://github.com/faker-ruby/faker
-    #     name Faker::Creature::Animal.name
-    #     active true
-    # end
 
+  #factory blueprint for pet
     factory :pet do
       name "Dusty"
       female true
@@ -32,6 +32,7 @@ FactoryBot.define do
       association :animal
     end
     
+      #factory blueprint for visit
     factory :visit do
       association :pet 
       date 6.months.ago.to_date

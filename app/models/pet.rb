@@ -13,7 +13,7 @@ validates :name, :owner_id, :animal_id, presence: true
 # validates_presence_of :owner_id, :animal_id, message: "cannot be blank"
 # Second, make sure the animal is one of the types PATS treats
 # here we use the validate method (not validates), as this is a 
-customized validation
+# customized validation
 validate :animal_type_treated_by_PATS
 # # Third, make sure the owner_id is in the PATS system 
 # validate :owner_is_active_in_PATS
