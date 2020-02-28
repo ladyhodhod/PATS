@@ -10,9 +10,11 @@ require 'minitest_extensions'
 require 'contexts'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  # Since we are not using fixtures, comment this line out...
   # fixtures :all
-  include Contexts
+  # Rails builds fixtures automatically
+
+  include Contexts # calling all the methods define in contexts.rb
 
   # Add more helper methods to be used by all tests here...
     # Spruce up minitest results...

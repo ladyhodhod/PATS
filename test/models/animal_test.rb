@@ -1,12 +1,11 @@
 require 'test_helper'
 
 class AnimalTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
+# Not much for testing Animal as it is a simple model
+  # Relationship matchers...
   should have_many(:pets)
 
+  # Validation matchers...
   should validate_presence_of(:name)
   should validate_uniqueness_of(:name)
 
@@ -21,7 +20,7 @@ class AnimalTest < ActiveSupport::TestCase
     teardown do
       destroy_animals
     end
-
+   # now run the tests:
     should "show that all factories are properly created" do
       assert_equal "Dog", @dog.name
       assert_equal "Bird", @bird.name
@@ -48,9 +47,6 @@ class AnimalTest < ActiveSupport::TestCase
     # assert_equal ["Alex", "Mark"], Owner.active.alphabetical. map{|o| o.first_name}
     assert_equal ["Turtle"], Animal.inactive.map{|a| a.name}.sort
   end
-
-
-
   end
 
 end

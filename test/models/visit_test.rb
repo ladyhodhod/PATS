@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class VisitTest < ActiveSupport::TestCase
-  require 'test_helper'
-
-class VisitTest < ActiveSupport::TestCase
   # Relationship macros...
   should belong_to(:pet)
   should have_one(:animal).through(:pet)
@@ -70,4 +67,3 @@ class VisitTest < ActiveSupport::TestCase
   end
 end
 
-end

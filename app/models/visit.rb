@@ -18,8 +18,7 @@ class Visit < ApplicationRecord
 
   # Validations
   # -----------------------------
-
-  validates_presence_of :pet_id, message: "The Pet ID should be provided!"
+  validates_presence_of :pet_id, message: "can't be blank"
   # weight must be present and a number greater than 0 and less than 100 (none of our animal types will exceed)
   validates :weight, presence:true, numericality: {greater_than:0, less_than:100}
   # date must be a valid date

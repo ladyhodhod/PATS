@@ -1,7 +1,17 @@
-# Mock object testing involves the use of fake objects as stand - ins for your real objects to support automated
+# Mock object testing involves the use of fake objects as stand-ins for your real objects to support automated
 # testing
+# Factory Bot, originally known as Factory Girl, is a software library for the Ruby programming 
+# language that provides factory methods to create test objects for automated software testing.
+#  Factory Bot is often used in testing Ruby on Rails applications;
+#  where it replaces Rails' built-in fixture mechanism.
+
 FactoryBot.define do
+
   #factory blueprint for owner
+  # A factory is defined by a name (:owner) and its set of attributes. 
+  # The class of the test object is either determined through the name of the factory or 
+  # set explicitly.
+
   factory :owner do
     first_name {"Alex"}
     last_name {"Heimann"}
@@ -31,7 +41,7 @@ FactoryBot.define do
       association :animal
     end
     
-      #factory blueprint for visit
+    #factory blueprint for visit
     factory :visit do
       association :pet 
       date 6.months.ago.to_date

@@ -8,6 +8,7 @@ class OwnerTest < ActiveSupport::TestCase
 
   # We use a library called shoulda-matchers to test validations and associations. 
   # shoulda-matchers provides matchers for writing single line tests for common Rails functionality.
+  # more on shoulda: https://github.com/thoughtbot/shoulda
   
   # Test Relationships
   should have_many(:pets)
@@ -108,28 +109,32 @@ class OwnerTest < ActiveSupport::TestCase
         assert_equal ["Rachel"], Owner.inactive.map{|o| o.first_name}.sort
       end
 
+      # test the scope 'search'
+    should "shows that search for owner by either (part of) last or first name works" do
+      assert_equal 3, Owner.search("Hei").size
+      assert_equal 1, Owner.search("Mark").size
+    end
+
 
     should "show that name method works" do
       assert_equal "Heimann, Alex", @alex.name
     end
 
-  end
+     # test the method 'name' works
+     should "shows that name method works" do
+      assert_equal "Heimann, Alex", @alex.name
+    end
+    
+    # test the method 'proper_name' works
+    should "shows that proper_name method works" do
+      assert_equal "Alex Heimann", @alex.proper_name
+    end
+    
+     # test the callback is working 'reformat_phone'
+     should "shows that Mark's phone is stripped of non-digits" do
+      assert_equal "4122688211", @mark.phone.gsub(/[^0-9]/,'')
+    end
 
-
- 
-  
-
-
-
-
-
-
-
-  # Test Scopes
-  
-
-
-  # Test Callbacks
-
+  end # end of context
 
 end

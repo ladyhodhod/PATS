@@ -46,8 +46,14 @@ scope :for_owner, ->(owner_id) { where("owner_id = ?", owner_id) }
 scope :by_animal, ->(animal_id) { where("animal_id = ?", animal_id) }
  # get all the pets born before a certain date
 scope :born_before, ->(date) { where('dob < ?', date) }
+# find all pets that have a name like some term or are and animal like some term
+scope :search, ->(term) { joins(:animal).where('pets.name LIKE ?', "#{term}%").order("pets.name") }
 
  
+def gender
+    return "Female" if self.female
+    "Male"
+end 
 # Use private methods to execute the custom validations
 # -----------------------------
 private 
