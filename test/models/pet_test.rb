@@ -72,7 +72,7 @@ class PetTest < ActiveSupport::TestCase
     # the build method creates the object but does not save it to the database.
     @turtle = FactoryBot.build(:animal, name: "Turtle")
     turtle_pet = FactoryBot.build(:pet, animal: @turtle, owner: @mark, name: "Surfer")
-    assert_not turtle_pet.valid?
+    assert !turtle_pet.valid?
     # we've created plenty of valid pets earlier, so not testing the validation allows good cases here...
   end
 

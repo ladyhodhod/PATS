@@ -26,7 +26,7 @@ class AnimalTest < ActiveSupport::TestCase
       assert_equal "Bird", @bird.name
       assert @dog.active
       assert @bird.active
-      assert_not @turtle.active
+      assert !@turtle.active
     end
 
   # test the scope 'alphabetical'

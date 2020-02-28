@@ -89,7 +89,7 @@ class OwnerTest < ActiveSupport::TestCase
       assert_equal "Rachel", @rachel.first_name
       assert @alex.active
       assert @mark.active
-      assert_not @rachel.active
+      assert !@rachel.active
     end
 
     # test the scope 'alphabetical'
