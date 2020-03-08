@@ -1,0 +1,25 @@
+<h1> Pet Pages </h1>
+<p>The current time is: <%= Time.now %></p>
+
+<!--<%=: Output embedding tag:
+This tag evaluates the Ruby code it contains and
+embeds the results in the finished text.
+-->
+<%= @pets.first.name %>
+
+<!-- <%:  The regular embedding tag:
+thid evaluates Ruby code without inserting its result in the finished text.
+ -->
+<% grade = 97 %>
+<% if grade>60%>
+You passed!
+<%end%>
+
+<%4.times do |index|%>
+<p><%= index%>: fish</p>
+<%end%>
+
+<!-- Loop through all the pets and dsiplay their names-->
+<% @pets.each do |pet|%>
+    <p><%= pet.name %></p>
+<% end %>

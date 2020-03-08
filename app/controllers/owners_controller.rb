@@ -10,6 +10,7 @@ class OwnersController < ApplicationController
   # GET /owners/1
   # GET /owners/1.json
   def show
+    @owner=Owner.find(params[:id])
   end
 
   # GET /owners/new
@@ -62,12 +63,14 @@ class OwnersController < ApplicationController
   end
 
   private
+    # Methods that are not accessed outside of this class
     # Use callbacks to share common setup or constraints between actions.
     def set_owner
       @owner = Owner.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
+    #  this is the strong parameters method
     def owner_params
       params.require(:owner).permit(:first_name, :last_name, :street, :city, :state, :zip, :phone, :email, :active)
     end
