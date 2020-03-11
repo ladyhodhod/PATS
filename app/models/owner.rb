@@ -31,7 +31,7 @@ class Owner < ApplicationRecord
     # Not allowing for .uk, .ca, etc. because this is a Pittsburgh business and customers not likely to be out-of-country
     validates_format_of :email, with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format"
     # if state is given, must be one of the choices given (no hacking this field)
-    validates_inclusion_of :state, in: %w[PA OH WV], message: "is not an option", allow_blank: true
+    validates_inclusion_of :state, in: ['PA', 'OH', 'WV'], message: "is not an option", allow_blank: true
     # if not limited to the three states, it might be better (but slightly slower) to write:
     # Set up a states array to make select menu easier later
     STATES_LIST = [['Ohio', 'OH'],['Pennsylvania', 'PA'],['West Virginia', 'WV']]
