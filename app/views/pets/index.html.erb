@@ -1,0 +1,19 @@
+<h1>The Pets Page</h1>
+
+<table>
+<tr>
+<th> Name </th>
+<th> Female </th>
+</tr>
+<% @pets.each do |pet| %>
+    <tr>
+    <td> <%= pet.name %></td>
+    <td> <%= pet.female %></td>
+    </tr>
+<% end %>
+
+</table>
+
+
+
+
