@@ -1,18 +1,22 @@
-<h1>The Pets Page</h1>
+<h1>List of Pets</h1>
 
 <table>
 <tr>
 <th> Name </th>
 <th> Female </th>
+<th> Owner </th>
+<th> Animal </th>
 </tr>
 <% @pets.each do |pet| %>
     <tr>
     <td> <%= pet.name %></td>
     <td> <%= pet.female %></td>
+    <td> <%= pet.owner_id  %></td>
+    <td> <%= pet.animal_id %></td>
     </tr>
 <% end %>
-
 </table>
+
 
 
 

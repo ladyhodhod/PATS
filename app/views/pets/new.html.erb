@@ -1,0 +1,52 @@
+<h1>New Pet</h1>
+
+<%= form_for(@pet) do |f|%>
+
+    <div class="field">
+        <%# This will output a label for the "name" field. %>
+        <%= f.label :name %>
+        <%# This will output a text for the "name" field. %>
+        <%= f.text_field :name%>
+    </div>
+
+   
+    <div class="field">
+        <%= f.label :dob %>
+        <%# This will output a date field for the "dob" field. %>
+        <%= f.date_field :dob%>
+    </div>
+
+    <div class="field">
+        <%# This will output a label for the "name" field. %>
+        <%= f.label :owner_id %>
+        <%# This will output a text for the "name" field. %>
+        <%= f.text_field :owner_id%>
+    </div>
+
+    <div class="field">
+        <%# This will output a label for the "name" field. %>
+        <%= f.label :animal_id %>
+        <%# This will output a text for the "name" field. %>
+        <%= f.text_field :animal_id%>
+    </div>
+
+    <div class="field">
+     <%= f.label :female %>
+        <%# Outputs a checkbox for boolean fields %>
+      <%= f.check_box :female %><br />
+    </div>
+
+    <div class="field">
+      <%= f.label :active %>
+      <%= f.check_box :active %><br />
+    </div>
+
+
+    <div class="actions">
+        <%# Outputs a button used to submit the form. %>
+        <%= f.submit %>
+    </div>
+
+<%end%>
+
+<%= link_to 'Back', pets_path %>

@@ -15,6 +15,7 @@ gem 'materialize-sass'
 gem 'material_icons'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+gem 'bootstrap-datepicker-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -38,7 +39,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'validates_timeliness', '4.0.2'
-gem 'will_paginate', '3.1.6'
+gem 'will_paginate', '3.1.7'
+gem 'simple_form'
+gem 'materialize-sass'
 
 
 group :development, :test do
@@ -55,7 +58,7 @@ group :development, :test do
   gem 'minitest', '5.14.0'
   gem 'minitest-rails', '3.0.0'
   gem 'minitest-reporters', '1.1.19'
-
+  gem 'simple_form'
 end
 
 group :development do

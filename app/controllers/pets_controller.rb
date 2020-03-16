@@ -18,8 +18,89 @@ class PetsController < ApplicationController
         # By default, it renders a template with the same name as the action
         # we could add an explicit call to the render method and get the same result
         # the next line is not mandatory, it is done by default in every rails app
-        render template: "pets/index.html.erb", layout:"application"
+        # render template: "pets/index.html.erb", layout:"application"
         # render the index.html.erb and give it access to @pets content
     end
 
+    # GET /pets/1
+    # GET /pets/1.json
+    def show
+        @pet= Pet.find(params[:id])
+        # render template: "pets/show.html.erb", layout:"application"
+    end
+
+    # this sets up a new html form for a new Pet object
+    # GET /pets/new
+    def new
+        @pet= Pet.new
+        # render template: "pets/new.html.erb", layout:"application"
+
+    end
+
+    # POST /pets
+    # POST /pets.json
+    # def create
+    #     @pet= Pet.new(pets_params)
+    #     if @pet.save
+    #         redirect_to @pet
+    #     end
+    # end
+
+    def create
+        @pet = Pet.new(pet_params)
+          if @pet.save #Pet successfully saved
+            # Call redirect_to to send an HTTP redirect status code to the browser
+            # redirects to the show page for the newly created Pet
+            redirect_to pet_path(@pet), notice: "#{@pet.name} was successfully created."
+          else #Pet is not saved!
+            render action: 'new' 
+          end
+      end
+
+    # GET /pets/1/edit
+    def edit 
+        @pet=Pet.find(params[:id])
+        # render template: "pets/edit.html.erb", layout:"application"
+    end
+
+    # PATCH/PUT /pets/1
+    # PATCH/PUT /pets/1.json
+    def update
+        @pet = Pet.find(params[:id])
+            # Use the filtered parameters to update
+            # the existing model record.
+          if @pet.update(pets_params)
+            # # Redirect the browser to another location
+            # so that it doesn't just sit there displaying
+            # the submitted form.
+              redirect_to pet_path(@pet), notice: "#{@pet.name} was successfully updated."
+          else
+            render action: 'edit' 
+          end
+      end
+
+
+    # DELETE /pets/1
+     # DELETE /pets/1.json
+     def destroy
+        @pet = Pet.find(params[:id])
+        @pet.destroy
+        respond_to do |format|
+          format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
+          format.json { head :no_content }
+        end
+      end
+
+    private
+
+    def set_pet
+      @pet= Pet.find(params[:id])
+    end
+
+    # Strong parameters method
+    def pets_params
+        params.require(:pet).permit(:name, :dob, :female, :active, :animal_id, :owner_id)
+    end
+
+   
 end
