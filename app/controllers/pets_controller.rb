@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-
+  before_action :set_pet, only: [:show, :edit, :update, :destroy]
     # Get /pets --> pets#index
     # The request gets sent to the index method of the PetsController class.
     # The controller is responsible for handling the browser requests.
@@ -13,7 +13,7 @@ class PetsController < ApplicationController
     def index 
         # First, we call Pet.all method to load all pet objects and
         # store them in an instance variable
-        @pets=Pet.active.alphabetical
+        @pets=Pet.active.alphabetical.paginate(:page => params[:page]).per_page(3)
         # Then the controller uses the data to render a view
         # By default, it renders a template with the same name as the action
         # we could add an explicit call to the render method and get the same result
@@ -25,7 +25,7 @@ class PetsController < ApplicationController
     # GET /pets/1
     # GET /pets/1.json
     def show
-        @pet= Pet.find(params[:id])
+      # @pet= Pet.find(params[:id]) # covered by the callback before_action
         # render template: "pets/show.html.erb", layout:"application"
     end
 
@@ -33,7 +33,7 @@ class PetsController < ApplicationController
     # GET /pets/new
     def new
         @pet= Pet.new
-        # render template: "pets/new.html.erb", layout:"application"
+        render template: "pets/new.html.erb", layout:"application"
 
     end
 
@@ -47,7 +47,7 @@ class PetsController < ApplicationController
     # end
 
     def create
-        @pet = Pet.new(pet_params)
+        @pet = Pet.new(pets_params)
           if @pet.save #Pet successfully saved
             # Call redirect_to to send an HTTP redirect status code to the browser
             # redirects to the show page for the newly created Pet
@@ -59,14 +59,13 @@ class PetsController < ApplicationController
 
     # GET /pets/1/edit
     def edit 
-        @pet=Pet.find(params[:id])
+      # @pet= Pet.find(params[:id]) # this is done in the callback
         # render template: "pets/edit.html.erb", layout:"application"
     end
 
     # PATCH/PUT /pets/1
     # PATCH/PUT /pets/1.json
     def update
-        @pet = Pet.find(params[:id])
             # Use the filtered parameters to update
             # the existing model record.
           if @pet.update(pets_params)
@@ -83,16 +82,11 @@ class PetsController < ApplicationController
     # DELETE /pets/1
      # DELETE /pets/1.json
      def destroy
-        @pet = Pet.find(params[:id])
-        @pet.destroy
-        respond_to do |format|
-          format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
-          format.json { head :no_content }
-        end
-      end
+      @pet.destroy
+      redirect_to pets_url
+    end
 
     private
-
     def set_pet
       @pet= Pet.find(params[:id])
     end

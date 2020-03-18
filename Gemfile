@@ -42,6 +42,10 @@ gem 'validates_timeliness', '4.0.2'
 gem 'will_paginate', '3.1.7'
 gem 'simple_form'
 gem 'materialize-sass'
+gem 'chronic', '0.10.2'
+gem 'materialize-form', '1.0.8'
+gem 'jquery-rails', '4.3.1'
+gem 'jquery-ui-rails', '6.0.1'
 
 
 group :development, :test do

@@ -11,11 +11,22 @@
     <tr>
     <td> <%= pet.name %></td>
     <td> <%= pet.female %></td>
-    <td> <%= pet.owner_id  %></td>
-    <td> <%= pet.animal_id %></td>
+    <td> <%= pet.owner.proper_name %></td>
+    <td> <%= pet.animal.name %></td>
+    <td> <%= link_to "Show", pet_path(pet)%> </td>
+    <%# #<a href="/pets/1">Show </a> %>
+    <td> <%= link_to "Edit", edit_pet_path(pet)%> </td>
+    <%# #<a href="/pets/1/edit">Edit </a> %>
+    <td> <%= link_to "Destroy", pet, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+
     </tr>
 <% end %>
 </table>
+
+<%= will_paginate @pets, :previous_label => "Previous", :next_label => "N" %>
+
+<%= link_to 'New Pet', new_pet_path%>
+
 
 
 
