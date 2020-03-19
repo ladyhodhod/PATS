@@ -46,6 +46,11 @@ gem 'chronic', '0.10.2'
 gem 'materialize-form', '1.0.8'
 gem 'jquery-rails', '4.3.1'
 gem 'jquery-ui-rails', '6.0.1'
+gem 'cancancan', '2.1.2'
+gem 'time_date_helpers', '0.0.2'
+gem 'carrierwave', '1.2.2'
+
+
 
 
 group :development, :test do
