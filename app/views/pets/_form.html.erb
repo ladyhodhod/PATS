@@ -1,48 +1,19 @@
-<%= form_for(@pet) do |f|%>
-
-    <div class="field">
-        <%# This will output a label for the "name" field. %>
-        <%= f.label :name %>
-        <%# This will output a text for the "name" field. %>
-        <%= f.text_field :name%>
+  <%# More on simple form: https://github.com/heartcombo/simple_form %>
+  <%= simple_form_for(@pet) do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="form-inputs">
+        <%= f.input :name, label_html: { class: 'active' } %>
+        <%= f.input :animal_id, collection: Animal.alphabetical.active.to_a, include_blank: true %>
+        <%= f.input :owner_id, collection: Owner.alphabetical.active.to_a, include_blank: true %>
+        <%= f.input :dob, label_html: { class: 'active' } %>
+        <%= f.input :female, as: :radio_buttons %>
+        <%= f.input :active %>
+      </div>
     </div>
-
-   
-    <div class="field">
-        <%= f.label :dob %>
-        <%# This will output a date field for the "dob" field. %>
-        <%= f.date_field :dob%>
+    <div class="row">
+      <div class="form-actions col s8">
+        <%= f.button :submit %>
+      </div>
     </div>
-
-    <div class="field">
-        <%# This will output a label for the "name" field. %>
-        <%= f.label :owner_id %>
-        <%# This will output a text for the "name" field. %>
-        <%= f.text_field :owner_id%>
-    </div>
-
-    <div class="field">
-        <%# This will output a label for the "name" field. %>
-        <%= f.label :animal_id %>
-        <%# This will output a text for the "name" field. %>
-        <%= f.text_field :animal_id%>
-    </div>
-
-    <div class="field">
-     <%= f.label :female %>
-        <%# Outputs a checkbox for boolean fields %>
-      <%= f.check_box :female %><br />
-    </div>
-
-    <div class="field">
-      <%= f.label :active %>
-      <%= f.check_box :active %><br />
-    </div>
-
-
-    <div class="actions">
-        <%# Outputs a button used to submit the form. %>
-        <%= f.submit %>
-    </div>
-
-<%end%>
+  <% end %>

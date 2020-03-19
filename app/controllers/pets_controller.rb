@@ -1,6 +1,15 @@
 class PetsController < ApplicationController
+
+#When we work with show, edit, update and destroy actions,
+# we will be working with a particular pet based on an pet_id provided by the user
+# via our interface.
+# We want to create this pet and assign it to an @pet object before starting
+# each of these methods. 
+# To do this we put the following code at the top of (but still inside) the class definition:
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
-    # Get /pets --> pets#index
+    
+  
+# Get /pets --> pets#index
     # The request gets sent to the index method of the PetsController class.
     # The controller is responsible for handling the browser requests.
     # It controls the model and the view to generate a response.
@@ -8,7 +17,6 @@ class PetsController < ApplicationController
     # loads the requested data via the model usually from a database.
     # And then inserts that data into the view, which is usually an HTML page.
     # The result of rendering the HTML is then returned to the browser as a response.
-
     # The index method or action
     def index 
         # First, we call Pet.all method to load all pet objects and
@@ -18,15 +26,16 @@ class PetsController < ApplicationController
         # By default, it renders a template with the same name as the action
         # we could add an explicit call to the render method and get the same result
         # the next line is not mandatory, it is done by default in every rails app
-        # render template: "pets/index.html.erb", layout:"application"
+        render template: "pets/index.html.erb", layout:"application"
         # render the index.html.erb and give it access to @pets content
+
     end
 
     # GET /pets/1
     # GET /pets/1.json
     def show
       # @pet= Pet.find(params[:id]) # covered by the callback before_action
-        # render template: "pets/show.html.erb", layout:"application"
+        render template: "pets/show.html.erb", layout:"application"
     end
 
     # this sets up a new html form for a new Pet object
@@ -34,7 +43,6 @@ class PetsController < ApplicationController
     def new
         @pet= Pet.new
         render template: "pets/new.html.erb", layout:"application"
-
     end
 
     # POST /pets
@@ -59,7 +67,7 @@ class PetsController < ApplicationController
 
     # GET /pets/1/edit
     def edit 
-      # @pet= Pet.find(params[:id]) # this is done in the callback
+      @pet= Pet.find(params[:id]) # this is done in the callback
         # render template: "pets/edit.html.erb", layout:"application"
     end
 

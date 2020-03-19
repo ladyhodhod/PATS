@@ -11,6 +11,11 @@
   </head>
 
   <body>
+      <%# <p>This is to be shown in every page 1</p> %>
     <%= yield %>
+     <%# <p>This is to be shown in every page 2</p> %>
+
+  <%= render partial: "partials/footer.html.erb"%>
+
   </body>
 </html>
