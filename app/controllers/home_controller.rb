@@ -1,6 +1,10 @@
+# This controller is generated using the following command:
+# rails generate controller home
+
 class HomeController < ApplicationController
 
     def index 
+    # The following is done implicitely in Rails. 
     # render template:'index.html.erb', layout:'application'
     end
 
