@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OwnersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @owner = owners(:one)
+    @owner  = FactoryBot.create(:owner)
   end
 
   test "should get index" do
@@ -16,7 +16,7 @@ class OwnersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create owner" do
-    assert_difference('Owner.count') do
+    assert_difference('Owner.count', +1) do
       post owners_url, params: { owner: { active: @owner.active, city: @owner.city, email: @owner.email, first_name: @owner.first_name, last_name: @owner.last_name, phone: @owner.phone, state: @owner.state, street: @owner.street, zip: @owner.zip } }
     end
 

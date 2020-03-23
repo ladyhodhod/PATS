@@ -1,11 +1,12 @@
-  <%# More on simple form: https://github.com/heartcombo/simple_form %>
+<%# # Form_for it takes a model object, looks at its attributes, and    
+# uses those attributes to pre-populate the form's fields. %>
   <%= simple_form_for(@pet) do |f| %>
     <%= f.error_notification %>
     <div class="row">
       <div class="form-inputs">
         <%= f.input :name, label_html: { class: 'active' } %>
-        <%= f.input :animal_id, collection: Animal.alphabetical.active.to_a, include_blank: true %>
-        <%= f.input :owner_id, collection: Owner.alphabetical.active.to_a, include_blank: true %>
+        <%= f.input :animal_id, collection: Animal.active.alphabetical.to_a, include_blank: true %>
+        <%= f.input :owner_id, collection: Owner.active.alphabetical.to_a, include_blank: true %>
         <%= f.input :dob, label_html: { class: 'active' } %>
         <%= f.input :female, as: :radio_buttons %>
         <%= f.input :active %>

@@ -1,14 +1,18 @@
 <p class="supertiny">&nbsp;</p>
 
 <div id="footer" class="center-align">
-  
+<%# Adding links to access the static pages we created from the footer %>
   <%= link_to 'Home', home_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
-  <%= link_to 'About PATS', about_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
-  <%= link_to 'Contact Us', contact_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
-  <%= link_to 'Privacy Policy', privacy_path %>
+  <%= link_to 'About PATS', home_about_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
+  <%= link_to 'Contact Us', home_contact_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
+  <%= link_to 'Privacy Policy', home_privacy_path %>
+
+   <%= link_to 'Home', home_path %>: <a href='/home'>Home</a>
+     
+   >
   <br />
   <div id="copy">
-   &copy CMUQ 2020, 272 Section X!
+   &copy CMUQ 2020, 272 Section W!
   </div>
 
 </div>
