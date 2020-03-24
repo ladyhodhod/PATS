@@ -9,6 +9,7 @@ require 'minitest/reporters'
 require 'minitest_extensions'
 require 'contexts'
 
+
 class ActiveSupport::TestCase
   # Since we are not using fixtures, comment this line out...
   # fixtures :all

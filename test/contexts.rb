@@ -28,12 +28,12 @@ module Contexts
   end
   
   def destroy_animals
-    @cat.delete  
-    @dog.delete
-    @bird.delete
-    @ferret.delete
-    @rabbit.delete
-    @turtle.delete
+    @cat.destroy  
+    @dog.destroy
+    @bird.destroy
+    @ferret.destroy
+    @rabbit.destroy
+    @turtle.destroy
   end
   
   # ======= Pets
@@ -57,9 +57,9 @@ module Contexts
   end
   
   def destroy_visits
-    @visit1.delete
-    @visit2.delete
-    @visit3.delete
+    @visit1.destroy
+    @visit2.destroy
+    @visit3.destroy
   end
 
 

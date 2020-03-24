@@ -37,7 +37,6 @@ class AnimalTest < ActiveSupport::TestCase
   # test the scope 'active'
   should "shows that there are five active animals" do
     assert_equal 5, Animal.active.size
-    # assert_equal ["Alex", "Mark"], Owner.active.alphabetical. map{|o| o.first_name}
     assert_equal ["Bird", "Cat", "Dog", "Ferret", "Rabbit"], Animal.active.map{|a| a.name}.sort
   end
 
