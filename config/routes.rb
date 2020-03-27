@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # this creates the following route:
   # about_path	 GET	   /home/about(.:format)	  home#about
   # Without the alias
-  # get '/home/about', to: 'home#about'-> this generates a helper named home_about_path 
+  # get '/home/about', to: 'home#about'#-> this generates a helper named home_about_path 
   # home_about_path	 GET	   /home/about(.:format)	  home#about
 
   get '/home/contact', to: 'home#contact', as: :contact
