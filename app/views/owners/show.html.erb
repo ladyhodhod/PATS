@@ -1,49 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-content">
+    <h5><%= @owner.first_name %> <%= @owner.last_name %></h5><br />
 
-<p>
-  <strong>First name:</strong>
-  <%= @owner.first_name %>
-</p>
+    <b>Home Address:&nbsp;&nbsp;</b><br>
+      <%= @owner.street %><br>
+      <%= @owner.city %>, <%= @owner.state %> <%= @owner.zip %><br /><br />
 
-<p>
-  <strong>Last name:</strong>
-  <%= @owner.last_name %>
-</p>
+    <b>Phone:&nbsp;&nbsp;</b><br>
+      <%= number_to_phone(@owner.phone) %><br /><br />
 
-<p>
-  <strong>Street:</strong>
-  <%= @owner.street %>
-</p>
+    <b>Email:&nbsp;&nbsp;</b><br>
+      <%= mail_to @owner.email, @owner.email, encode: "javascript" %><br /><br />
 
-<p>
-  <strong>City:</strong>
-  <%= @owner.city %>
-</p>
+    <b>Active with PATS?&nbsp;&nbsp;</b>
+      <%= @owner.active ? "Yes" : "No" %>
+  </div>
+</div>
 
-<p>
-  <strong>State:</strong>
-  <%= @owner.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @owner.zip %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @owner.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @owner.email %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @owner.active %>
-</p>
-
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>

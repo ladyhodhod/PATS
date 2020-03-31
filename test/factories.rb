@@ -6,9 +6,6 @@
 #  where it replaces Rails' built-in fixture mechanism.
 
 FactoryBot.define do
-
-  #factory blueprint for owner
-  # A factory is defined by a name (:owner) and its set of attributes. 
   # The class of the test object is either determined through the name of the factory or 
   # set explicitly.
 

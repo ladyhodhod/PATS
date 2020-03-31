@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Owners</h1>
+<h1>Active Owners in PATS</h1>
 
 <table>
   <thead>
@@ -27,7 +27,7 @@
         <td><%= owner.city %></td>
         <td><%= owner.state %></td>
         <td><%= owner.zip %></td>
-        <td><%= owner.phone %></td>
+        <td><%= number_to_phone owner.phone %></td>
         <td><%= owner.email %></td>
         <td><%= owner.active %></td>
         <td><%= link_to 'Show', owner %></td>

@@ -10,8 +10,43 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
-//= require activestorage
-//= require turbolinks
-// = require_tree .
+//= require materialize-sprockets
+//= require materialize-form
+//= require_tree .
+
+// @import "materialize";
+// @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+// Sticky footer js
+// Thanks to Charles Smith for this -- http://foundation.zurb.com/forum/posts/629-sticky-footer
+$(window).bind("load", function () {
+    var footer = $("#footer");
+    var pos = footer.position();
+    var height = $(window).height();
+    height = height - pos.top;
+    height = height - footer.height();
+    if (height > 0) {
+        footer.css({
+            'margin-top': height + 'px'
+        });
+    }
+  });
+
+  // Flash fade
+  $(function() {
+     $('.alert-box').fadeIn('normal', function() {
+        $(this).delay(3700).fadeOut();
+     });
+  });
+  
+  // Carousel function
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });
+  
+  $( document ).ready(function () {
+    $(".dropdown-button").dropdown();
+})
 

@@ -1,11 +1,26 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  get 'users/new'
+  get 'users/create'
   resources :owners
   resources :pets
   resources :animals
   resources :visits
 
-  # get '/pets', to: 'pets#index'
+  # resources :users, only: [:new, :create]
+  # OR
+  get '/users/new', to: 'users#new', as: :user
+  post '/users', to: 'users#create'
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  # get '/sessions/new', to: 'sessions#new' # a login form
+  # post '/sessions', to: 'sessions#create' # the login action itself
+  # get '/sessions', to: 'sessions#destroy' # the logout
+  # # get '/pets', to: 'pets#index'
   # get '/pets/:id', to: 'pets#show'
   # post '/pets', to: 'pets#create'
 
