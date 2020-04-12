@@ -21,5 +21,15 @@ class HomeController < ApplicationController
         # render template:'privacy.html.erb', layout:'application'
     end
 
+    def search
+        @query = params[:term]
+        @owners_found = Owner.search(@query) # using the search scope
+        @pets_found = Pet.search(@query)
+        @total_hits = @owners_found.length + @pets_found.length
+
+        # implicitely
+        # render template:'search.html.erb', layout:"application.html.erb"
+    end
+
    
 end

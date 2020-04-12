@@ -16,7 +16,7 @@ html {
 
 #nav {
   background-color: black;
-  height: 45px;
+  height: 55px;
 }
 
 #nav ul a {
@@ -90,6 +90,18 @@ th.align_center {
 .btn {
   background-color: #ffd600;
   color: #000;
+}
+
+.btn:hover {
+  background-color: #ffff00;
+  color: #000;
+}
+
+.btn-search {
+  background-color: #fcfcfc;
+  color: rgb(21, 53, 156);
+  display: inline-block;
+  padding: 0px 0px;
 }
 
 .btn:hover {

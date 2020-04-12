@@ -11,6 +11,17 @@ class User < ApplicationRecord
     validates_length_of :password, :minimum =>4, message: "at least 4 characters long", :allow_blank => true
     validates_inclusion_of :role, in: %w( vet assistant), message: "is not part of the system"
 
+    
+    ROLES = [['Vet', :vet],['Assistant', :assistant]]
+
+    # compares a user's role in the system with the role we are testing for.
+    def role?(authorized_role)
+        return false if role.nil?
+        role.to_sym == authorized_role
+    end
+
+
+
     #other methods
     def proper_name
         first_name + " " + last_name
@@ -18,6 +29,14 @@ class User < ApplicationRecord
 
     def name 
         last_name + "," +first_name
+    end
+
+
+
+
+    # login by username
+    def self.authenticate(username, password)
+       find_by_username(username).try(:authenticate, password)
     end
 
 end

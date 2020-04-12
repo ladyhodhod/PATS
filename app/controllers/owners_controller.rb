@@ -1,5 +1,9 @@
 class OwnersController < ApplicationController
+
+  # Callbacks
   before_action :set_owner, only: [:show, :edit, :update, :destroy]
+  before_action :check_login
+  authorize_resource
 
   # GET /owners
   # GET /owners.json

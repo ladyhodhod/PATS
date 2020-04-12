@@ -12,14 +12,19 @@ Rails.application.routes.draw do
 
   # resources :users, only: [:new, :create]
   # OR
-  get '/users/new', to: 'users#new', as: :user
+  get 'signup', to: 'users#new', as: :user
   post '/users', to: 'users#create'
 
-  resources :sessions, only: [:new, :create, :destroy]
+  # resources :sessions, only: [:new, :create, :destroy]
+# OR
+  get 'login', to: 'sessions#new' # a login form
+  post '/sessions', to: 'sessions#create' # the login action itself
+  get 'logout', to: 'sessions#destroy' # the logout
 
-  # get '/sessions/new', to: 'sessions#new' # a login form
-  # post '/sessions', to: 'sessions#create' # the login action itself
-  # get '/sessions', to: 'sessions#destroy' # the logout
+  get 'search', to: 'home#search'
+
+
+
   # # get '/pets', to: 'pets#index'
   # get '/pets/:id', to: 'pets#show'
   # post '/pets', to: 'pets#create'

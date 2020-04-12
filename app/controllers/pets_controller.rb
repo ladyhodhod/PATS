@@ -7,6 +7,15 @@ class PetsController < ApplicationController
 # each of these methods. 
 # To do this we put the following code at the top of (but still inside) the class definition:
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :check_login
+  # put constraints on the controllers
+  #  so they don't give the user access 
+  # to app functionality they aren't entitled to.
+  # You should choose to use either " authorize_resource " that generates the constraints
+  # on all the actions. Or add the constraint one by one in the corresponding actions.
+  # The authorized action will check the ability.rb file before running any instruction
+  # defined in the action.
+  authorize_resource 
     
   
 # Get /pets --> pets#index
@@ -21,6 +30,7 @@ class PetsController < ApplicationController
     def index 
         # First, we call Pet.all method to load all pet objects and
         # store them in an instance variable
+        
         @pets=Pet.active.alphabetical.paginate(:page => params[:page]).per_page(3)
         # Then the controller uses the data to render a view
         # By default, it renders a template with the same name as the action
@@ -34,6 +44,9 @@ class PetsController < ApplicationController
     # GET /pets/1
     # GET /pets/1.json
     def show
+      # Put constraint on the show action so it doesn't give the user access 
+      # to the show functionality if He/She isn't entitled to.
+      authorize! :show, @pet
       # @pet= Pet.find(params[:id]) # covered by the callback before_action
         render template: "pets/show.html.erb", layout:"application"
     end
@@ -74,6 +87,9 @@ class PetsController < ApplicationController
     # PATCH/PUT /pets/1
     # PATCH/PUT /pets/1.json
     def update
+       # Put constraint on the update action so it doesn't give the user access 
+      # to the update functionality if He/She isn't entitled to.
+           authorize! :update, @pet
             # Use the filtered parameters to update
             # the existing model record.
           if @pet.update(pets_params)
@@ -89,7 +105,10 @@ class PetsController < ApplicationController
 
     # DELETE /pets/1
      # DELETE /pets/1.json
-     def destroy
+     def destroy 
+    # Put constraint on the destroy action so it doesn't give the user access 
+    # to the destroy functionality if He/She isn't entitled to.
+      authorize! :destroy, @pet
       @pet.destroy
       redirect_to pets_url
     end
