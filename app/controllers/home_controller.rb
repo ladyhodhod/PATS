@@ -22,9 +22,16 @@ class HomeController < ApplicationController
     end
 
     def search
+        # store the value of the key term in the @query instance variable
         @query = params[:term]
-        @owners_found = Owner.search(@query) # using the search scope
-        @pets_found = Pet.search(@query)
+        
+        # search for all the owners in the system by either first or last name
+        @owners_found = Owner.search(@query) # using the search scope defined for the Owner model
+       
+        # search for all pets that have a name like some term
+        @pets_found = Pet.search(@query) # using the search scope defined for the Pet model
+       
+        # Store the number of records found to be displayed to the user
         @total_hits = @owners_found.length + @pets_found.length
 
         # implicitely

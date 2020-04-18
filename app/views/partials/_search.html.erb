@@ -2,10 +2,18 @@
      <ul class="right">
     <li>
       <%=form_tag(search_path, method: :get) do %>
+    <%# add the text input field where the user will enter the term to be queried %>
       <%= text_field_tag :term, params[:term],  class: "input-field" %>
+
+    <%# add the query submission button "Search". 
+    This is the part that will trigger the action "Search" in the controller home
+    And also, will store the query entered by the user in the params hash
+    as a value for the key ":term", defined in the textfield above.  %>
       <div class="btn-search">
       <%= submit_tag("Search")%>
       </div>
+
+
       <% end %>
     </li>
     </ul>
