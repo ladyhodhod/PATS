@@ -44,7 +44,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'jquery-ui-rails', '6.0.1'
 gem 'cancancan', '2.1.2'
 gem 'time_date_helpers', '0.0.2'
-gem 'carrierwave', '1.2.2'
+gem 'carrierwave', '1.3.2'
 
 group :development, :test do
 # Use sqlite3 as the database for Active Record
